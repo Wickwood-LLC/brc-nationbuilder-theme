@@ -3027,6 +3027,10 @@ and (max-width : 320px) {
       height: auto;
     }
   }
+  .social-links {
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 // homepage-specific styles
