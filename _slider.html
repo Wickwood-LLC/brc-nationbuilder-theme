@@ -1,0 +1,39 @@
+<div class="slider" >
+    <ul>
+        <li class="slide slide-1">
+          <div class="flick-title" style="text-align:center;"> Watch the BRC video </div>
+          <a class="various fancybox.iframe" href="http://www.youtube.com/embed/Ct9KEWZjQDw?autoplay=1" style="display:table; margin:0 auto 10%;">
+            <div class="play-video" style="width:128px; height:128px;"></div>
+          </a>
+          <div class="actions" style="display:table; margin: 0 auto;">
+            <button class="button take-action">Take Action Now! <br> → </button>
+            <button class="button subscribe-news">Stay informed <br> →→ </button>
+          </div>
+        </li>
+        <li class="slide slide-2">
+            <!-- <a class="fancybox_survey" data-fancybox-type="iframe" href='{{ theme['slider_call_gov.html'] }}'> -->
+              <div class="flick-title">Call the Governor</div>
+            <!-- </a> -->
+            {% subpage "call_nys_gov" with "slider_call_gov" %}
+            <div class="actions" style="display:table; margin: 0 auto;">
+              <button class="button watch-video">Watch the Video <br> ← </button>
+              <button class="button subscribe-news">Stay informed <br> → </button>
+          </div>
+        </li>
+        <li class="slide slide-3">
+            <div class="flick-title">Spread the word</div>
+            <!-- {% subpage "join" with "slider_signup" %} -->
+            <!-- {% include "like_page" %} -->
+            <span class='st_sharethis_large' displayText='ShareThis'></span>
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_twitter_large' displayText='Tweet'></span>
+            <span class='st_linkedin_large' displayText='LinkedIn'></span>
+            <span class='st_pinterest_large' displayText='Pinterest'></span>
+            <span class='st_email_large' displayText='Email'></span>
+            <div class="actions" style="display:table; margin: 0 auto;">
+              <button class="button watch-video">Watch the Video <br> ←← </button>
+              <button class="button take-action">Take Action Now! <br> ← </button>
+          </div>
+        </li>
+    </ul>
+</div>

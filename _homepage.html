@@ -1,0 +1,218 @@
+<body class="aware-theme v2-theme {{ page.page_class_name }} js homepage">
+    <div id="pattern" class="pattern">
+      <div class="wrap" id="wrap">
+        <div class="wrap-overlay" id="wrap-overlay"></div>
+        <div id="body" class="page-{{ request.template | replace: '_', '-' }} {% if site.has_background_image? %}has-background{% endif %} main-transform-wrap">
+          <div class="header-container clearfix {% if site.has_background_image? %}no-background{% endif %}">
+            <div class="site-logo-wrap">
+              <header>
+                <a class="logo" href="/"><img src="{{ site.meta_image_url }}"></a>
+                <div class="site-info-wrapper">
+                	<h1 class="title"><a href="/">{{ site.long_name }}</a></h1>
+                	<h4 class="slogan">{{ site.subheadline }}</h4>
+                </div>
+              </header>
+            </div>
+            
+            {% include "slider" %}
+            
+            <div class="nav-container clearfix">
+              {% include "nav" %}
+            </div>
+            <!-- .nav-container -->
+          </div>          
+          <!-- .header-container -->
+          <footer class="clearfix width-container">
+            {{ content_for_footer }}                  
+          </footer>
+          <div class="twocolumn-container clearfix">
+                
+                  <div class="right-column">                
+                    {% if request.logged_in? %}                
+                    {% include "supporter_nav" %}                
+                    {% else %}                
+                    {% if site.has_button1? %}
+                    <a class="button supporter-nav-button" href="{{ site.button1_page.full_url_with_profile_recruiter }}">{{ site.button1_text }}</a>
+                    {% endif %}                
+                    {% if site.has_button2? %}
+                    <a class="button supporter-nav-button" href="{{ site.button2_page.full_url_with_profile_recruiter }}">{{ site.button2_text }}</a>
+                    {% endif %}                
+                    {% if site.has_button3? %}
+                    <a class="button supporter-nav-button" href="{{ site.button3_page.full_url_with_profile_recruiter }}">{{ site.button3_text }}</a>
+                    {% endif %}                
+                    {% endif %}                
+                  </div> <!-- .right-column -->
+                </div> <!-- .twocolumn_container -->
+        </div>
+        <!-- #body -->
+      </div>
+      <!-- #wrap -->
+    </div>
+    <!-- #pattern -->
+  
+    {% if site.has_background_image? %}
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/javascripts/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      jQuery.backstretch("{{ site.background_image_url }}", {speed: 0});
+    </script>
+    <![endif]-->
+    <style>
+      #main-transform-background {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        background: url('{{ site.background_image_url }}') no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    </style>
+    {% endif %}
+  
+  <!-- Initialize Flickerplate slider and Fancybox -->
+    <script type="text/javascript">
+      $(document).ready(function()
+        {
+            $('.slider').flickerplate(
+              {
+                  auto_flick: false,
+              });
+          
+          
+            $(".various").fancybox({
+              padding	: '0',
+              openEffect  : 'fade',
+              closeEffect : 'fade',
+              helpers : {
+                media : {}
+              }
+            });
+          
+          var waitForFinalEvent = (function () {
+            var timers = {};
+            return function (callback, ms, uniqueId) {
+              if (!uniqueId) {
+                uniqueId = "Don't call this twice without a uniqueId";
+              }
+              if (timers[uniqueId]) {
+                clearTimeout (timers[uniqueId]);
+              }
+              timers[uniqueId] = setTimeout(callback, ms);
+            };
+          })();
+
+          $(window).on("load resize",function () {
+              waitForFinalEvent(function(){
+
+                var height = $(window).height(),
+                    width = $(window).width();
+
+                $(".header-container").height(height);
+
+                if ((width > 700) && (height > 768)) {
+                  // Make the following items appear in larger screens
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).find('div').eq(1).removeClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).find('div').eq(1).removeClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(4).removeClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(5).removeClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(6).removeClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(7).removeClass('hidden');
+                  // Switch layouts of the following items
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(0).removeClass('mobile');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(1).removeClass('mobile');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).removeClass('mobile');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).removeClass('mobile');
+                } else {
+                  // Make the following items appear in smaller screens
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).find('div').eq(1).addClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).find('div').eq(1).addClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(4).addClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(5).addClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(6).addClass('hidden');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(7).addClass('hidden');
+                  // Switch layout to inline
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(0).addClass('mobile');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(1).addClass('mobile');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).addClass('mobile');
+                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).addClass('mobile');
+                }
+              }, 500, "some unique string");
+          });
+
+          // $(window).on("resize",function() {
+          //   $(".header-container").height(height);
+
+          //   if ((width > 700) || (height > 768)) {
+          //     // Make the following items appear in larger screens
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).find('div').eq(1).removeClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).find('div').eq(1).removeClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(4).removeClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(5).removeClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(6).removeClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(7).removeClass('hidden');
+          //     // Switch layouts of the following items
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(0).removeClass('mobile');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(1).removeClass('mobile');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).removeClass('mobile');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).removeClass('mobile');
+          //   } else {
+          //     // Make the following items appear in smaller screens
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).find('div').eq(1).addClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).find('div').eq(1).addClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(4).addClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(5).addClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(6).addClass('hidden');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(7).addClass('hidden');
+          //     // Switch layout to inline
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(0).addClass('mobile');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(1).addClass('mobile');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).addClass('mobile');
+          //     $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).addClass('mobile');
+          //   }
+          // });
+          
+          // var query1 = "screen and (min-device-width: 700px)",
+          //     query2 = "screen and (min-device-height: 769px)",
+          //     handler = {
+          //       match : function() {
+          //       // Make the following items appear in larger screens
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).find('div').eq(1).removeClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).find('div').eq(1).removeClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(4).removeClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(5).removeClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(6).removeClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(7).removeClass('hidden');
+
+          //       // Switch layouts of the following items
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(0).removeClass('mobile');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(1).removeClass('mobile');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).removeClass('mobile');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).removeClass('mobile');
+          //       },
+          //       unmatch : function() {
+          //       // Make the following items appear in smaller screens
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).find('div').eq(1).addClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).find('div').eq(1).addClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(4).addClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(5).addClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(6).addClass('hidden');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(7).addClass('hidden');
+
+          //       // Switch layout to inline
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(0).addClass('mobile');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(1).addClass('mobile');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).addClass('mobile');
+          //         $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).addClass('mobile');
+          //       }
+          //     };
+          // enquire
+          //   .register(query1, handler)
+          //   .register(query2, handler);
+        });
+    </script>
+  </body>
