@@ -550,7 +550,7 @@ body.no-transform-wrap {
   padding-left: 5%;
   padding-right: 5%;
   &.main {
-    padding-top: 85px;
+    padding-top: 85px !important;
   }
 }
 
@@ -2993,6 +2993,13 @@ and (max-width : 320px) {
     margin-right: 0;
   }
 
+}
+
+#suggestion-box-page-22 {
+  .page-excerpt {
+    display: inline-block;
+    width: 280px;
+  }
 }
 
 .play-video {
