@@ -113,34 +113,8 @@
                     width = $(window).width();
 
                 $(".header-container").height(height);
+                $(".slide-2 form").height(height * 0.5);
 
-                if ((width > 700) && (height > 768)) {
-                  // Make the following items appear in larger screens
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).find('div').eq(1).removeClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).find('div').eq(1).removeClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(4).removeClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(5).removeClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(6).removeClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(7).removeClass('hidden');
-                  // Switch layouts of the following items
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(0).removeClass('mobile');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(1).removeClass('mobile');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).removeClass('mobile');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).removeClass('mobile');
-                } else {
-                  // Make the following items appear in smaller screens
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).find('div').eq(1).addClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).find('div').eq(1).addClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(4).addClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(5).addClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(6).addClass('hidden');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(7).addClass('hidden');
-                  // Switch layout to inline
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(0).addClass('mobile');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(1).addClass('mobile');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(2).addClass('mobile');
-                  $('form.ajaxForm.survey_response_form').find('.row-fluid').eq(3).addClass('mobile');
-                }
               }, 500, "some unique string");
           });
         });
