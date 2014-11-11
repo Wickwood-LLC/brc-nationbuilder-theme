@@ -1,5 +1,13 @@
 {% form_for survey_response %}
 
+          <div class="intro">
+            <p>One of the fastest and easiest things you can do right now is call the New York State Governor Andrew Cuomo and your other Elected Representatives at the federal, state and local levels.</p>
+            <p>One of the reasons we are asking you to call the New York State Governor is because New York State is on edge of allowing fracking and Governor Cuomo can stop it with stroke of his pen.</p>
+            <p>You can reach the Governor's office by calling 1-518-474-8390.</p>
+            <p>So please call his office now and politely tell his office that you oppose hydrofracking, why, and who you are.</p>
+            <p>Then report your call here.</p>
+          </div>
+
           <div class="form-errors">{% error_messages_for survey_response %}</div>
 
           {% hidden_field_tag 'survey_question_response[survey_question_id]', page.survey.next_question.id %}
@@ -22,16 +30,14 @@
               </div>
 
             {% endfor %}
+
           {% elsif page.survey.next_question.is_yes_no? %}
 
             <div class="row-fluid">
 
-              <div class="span12"><label for="radio-button-yes" class="radio">{{ page.survey.next_question.yes_radio_button }} Yes</label></div>
+              <div class="span6"><label for="radio-button-yes" class="radio">{{ page.survey.next_question.yes_radio_button }} Yes</label></div>
 
-            </div>
-            <div class="row-fluid">
-
-              <div class="span12"><label for="radio-button-no" class="radio">{{ page.survey.next_question.no_radio_button }} No</label></div>
+              <div class="span6"><label for="radio-button-no" class="radio">{{ page.survey.next_question.no_radio_button }} No</label></div>
 
             </div>
  
@@ -74,14 +80,6 @@
             </div>
           {% endif %}
 
-          {% if request.sorta_logged_in? == false or request.current_signup.has_full_address? == false %}
-            <div class="row-fluid">
-
-              <div class="span12">{% text_field "submitted_address", class:"text", placeholder:"Address" %}</div>
-
-            </div>
-          {% endif %}
-
           {% if page.survey.is_volunteers? and site.ask_for_volunteers? %}
             {% if request.sorta_logged_in? == false or request.current_signup.is_volunteer == false %}
               <div class="row-fluid">
@@ -103,7 +101,7 @@
           <div class="row-fluidpadtop">
 
             <div class="span12">
-              {% submit_tag "Next question", class:"button submit-button" %}
+              {% submit_tag "Report my Call", class:"button submit-button" %}
               <div class="form-submit"></div>
             </div>
 
