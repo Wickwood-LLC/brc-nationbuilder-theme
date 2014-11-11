@@ -1,0 +1,86 @@
+  {% if request.sorta_logged_in? %}
+  <p>Anyone referred through your personal tracking link or through the buttons below will be credited to you.</p>
+  {% else %}
+  Sign in with <a href="{{ request.facebook_connect_url }}">Facebook</a>, <a href="{{ request.twitter_connect_url }}">Twitter</a> or <a href="/login">email</a> to get your personal tracking link.
+    <div class="padtop padbottommore">
+      <a href="{{ request.facebook_connect_url }}"><img src="{{ "signin_with_facebook.png" | asset_path }}"></a>
+        <a href="{{ request.twitter_connect_url }}"><img src="{{ "signin_with_twitter.png" | asset_path }}"></a>
+    </div>
+  {% endif %}
+  <div class="form-wrap">
+      {% if request.sorta_logged_in? %}
+      <label for="tracking_link">Your personal tracking link</label>
+          <form><input type="text" id="tracking_link" onclick="this.focus();this.select();" readonly="readonly" value="{{ page.recruiting.featured_page.full_url_with_recruiter }}"></input></form>
+      {% else %}
+      <div class="padtop">
+          <div class="subhead">Non tracking link</div>
+          <div class="subtext">
+          <form><input type="text" id="tracking_link" onclick="this.focus();this.select();" readonly="readonly" value="{{ page.recruiting.featured_page.full_url_with_recruiter }}"></input></form>
+        </div>
+      </div>
+      {% endif %}
+  </div>
+
+  <div class="padtopmore">
+<!--     <h4>Like on Facebook</h4> -->
+    <div class="padtopless">
+    {% if request.sorta_logged_in? %}
+      <fb:like href="{{ page.recruiting.featured_page.full_url }}" action="like" colorscheme="{{ site.facebook_colorscheme }}" ref="r{{ current_signup.id }}"></fb:like>
+    {% else %}
+      <fb:like href="{{ page.recruiting.featured_page.full_url }}" colorscheme="{{ site.facebook_colorscheme }}" action="like"></fb:like>
+    {% endif %}
+    </div>
+  </div>
+
+  <div class="padtopmore">
+    <!-- <h4>Send an email or private Facebook message</h4> -->
+    <div class="padtopless">
+    {% if request.sorta_logged_in? %}
+      <fb:send href="{{ page.recruiting.featured_page.full_url }}" colorscheme="{{ site.facebook_colorscheme }}" ref="r{{ current_signup.id }}"></fb:send>
+    {% else %}
+      <fb:send href="{{ page.recruiting.featured_page.full_url }}" colorscheme="{{ site.facebook_colorscheme }}"></fb:send>
+    {% endif %}
+    </div>
+  </div>
+
+  <div class="padtopmore">
+    <!-- <h4>Tweet your followers</h4> -->
+    <div class="padtopless">
+          <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="{{ page.recruiting.featured_page.full_url_with_recruiter }}" data-via="{{ site.broadcaster.twitter_login }}" data-related="{{ site.broadcaster.twitter_login }}" data-text="{{ page.recruiting.default_tweet_text }}">Tweet</a>
+    </div>
+  </div>
+
+  <div class="padtopmore">
+      <!-- <h4>Share on Google+</h4> -->
+      <div class="padtopless">
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <g:plusone href="{{ page.recruiting.featured_page.full_url }}" count="true" size="medium"></g:plusone>
+      </div>
+  </div>
+
+  <div class="padtopmore">
+      <!-- <h4>Share with your LinkedIn network</h4> -->
+      <div class="padtopless">
+        <script type="text/javascript" src="//platform.linkedin.com/in.js"></script><script type="in/share" data-url="{{ page.recruiting.featured_page.full_url_with_recruiter }}" data-counter="right"></script>
+      </div>
+  </div>
+
+  <script type="text/javascript" src="//platform.tumblr.com/v1/share.js"></script>
+  <div class="padtopmore">
+      <!-- <h4>You can also post to tumblr, reddit, and digg.</h4> -->
+      <div class="padtopless">
+        <a href="http://www.tumblr.com/share/link?url={{ page.recruiting.featured_page.full_url_with_recruiter | escape }}&name={{ page.recruiting.featured_page.headline | escape }}&description={{ page.recruiting.default_tweet_text | escape }}" title="Post on Tumblr">{{ "tumblr32" | icon }}</a>
+
+        <a href="http://reddit.com/submit?title={{ page.recruiting.featured_page.headline | escape }}&url={{ page.recruiting.featured_page.full_url_with_recruiter | escape }}">{{ "reddit32" | icon }}</a>
+
+        <a href="http://digg.com/submit?url={{ page.recruiting.featured_page.full_url_with_recruiter | escape }}&title={ page.recruiting.featured_page.headline | escape }}">
+        <span style="display:none">
+        {{ page.recruiting.default_tweet_text}}
+        </span>
+        {{ "digg32" | icon }}
+        </a>
+
+      </div>
+
+  </div>
