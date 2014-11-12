@@ -734,7 +734,7 @@ body.no-transform-wrap {
 .slogan {
   color: white;
   font-size: 0.5em;
-  margin-top: 1em;
+  margin-top: 0.5em;
   text-transform: none;
   text-shadow: 1px 1px 1px rgba(23, 23, 23, 0.82);
 }
@@ -1581,7 +1581,7 @@ ul#page-stream {
 
 footer {
   font-size: .83333333333em;
-  padding: 3.5em 0 3em 0;
+  padding: 1.5em 0 3em 0;
   background: $footer-background;
   color: $footer-color;
   position: relative;
@@ -1610,7 +1610,7 @@ footer {
 }
 
 .footer-signup.width-container {
-  margin: 4em auto;
+  margin: 2em auto;
   background: $footer-background-2;
   color: $footer-color-2;
 }

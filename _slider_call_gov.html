@@ -1,12 +1,10 @@
 {% form_for survey_response %}
 
-          <div class="intro">
-            <p>One of the fastest and easiest things you can do right now is call the New York State Governor Andrew Cuomo and your other Elected Representatives at the federal, state and local levels.</p>
-            <p>One of the reasons we are asking you to call the New York State Governor is because New York State is on edge of allowing fracking and Governor Cuomo can stop it with stroke of his pen.</p>
-            <p>You can reach the Governor's office by calling 1-518-474-8390.</p>
-            <p>So please call his office now and politely tell his office that you oppose hydrofracking, why, and who you are.</p>
-            <p>Then report your call here.</p>
-          </div>
+          {% if page.survey.content.size > 0 %}
+            <div id="intro" class="intro">
+              {{ page.survey.content }}
+            </div>
+          {% endif %}
 
           <div class="form-errors">{% error_messages_for survey_response %}</div>
 

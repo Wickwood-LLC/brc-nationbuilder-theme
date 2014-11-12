@@ -160,7 +160,6 @@ $highlight-background: $shade-2;
 }
 
 header {
-  padding-left: 1.8em;
   padding-right: 1.8em;
   
   .site-info-wrapper {
@@ -1061,7 +1060,7 @@ ul#page-stream {
 }
 .title {
   font-size: 2.5em;
-  margin: 5%;
+  margin: 2%;
   white-space: nowrap;
 
   @media only screen and (min-width: 980px) {
