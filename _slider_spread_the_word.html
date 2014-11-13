@@ -22,12 +22,12 @@
   </div>
 
   <div class="padtopmore">
-<!--     <h4>Like on Facebook</h4> -->
+  <!-- <h4>Like on Facebook</h4> -->
     <div class="padtopless">
     {% if request.sorta_logged_in? %}
-      <fb:like href="{{ page.recruiting.featured_page.full_url }}" action="like" colorscheme="{{ site.facebook_colorscheme }}" ref="r{{ current_signup.id }}"></fb:like>
+      <fb:like href="{{ page.recruiting.featured_page.full_url }}" action="like" colorscheme="{{ site.facebook_colorscheme }}" ref="r{{ current_signup.id }}" layout="button"></fb:like>
     {% else %}
-      <fb:like href="{{ page.recruiting.featured_page.full_url }}" colorscheme="{{ site.facebook_colorscheme }}" action="like"></fb:like>
+      <fb:like href="{{ page.recruiting.featured_page.full_url }}" colorscheme="{{ site.facebook_colorscheme }}" action="like" layout="button"></fb:like>
     {% endif %}
     </div>
   </div>
