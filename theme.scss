@@ -537,7 +537,7 @@ body.no-transform-wrap {
     .right-column {
       margin-top: 0 !important;
       visibility: visible;
-      @include transform(translate3d(-15em, 0, 0) rotateY(0deg));
+      @include transform(translate3d(-18em, 0, 0) rotateY(0deg));
     }
   }
 }
@@ -893,6 +893,7 @@ a.user-menu-button {
     margin-top: 0 !important;
     right: -18em;
     top: 0;
+    bottom: 0 !important;
     visibility: hidden;
     overflow: hidden;
     z-index: 8888;
