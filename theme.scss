@@ -3126,6 +3126,17 @@ and (max-width : 320px) {
     }
   }
 
+  .slide-3 {
+    .padtopmore {
+      display: inline-block;
+      padding: 0 20px 0 0;
+      vertical-align: top;
+    }
+    .fb_iframe_widget span {
+      vertical-align: top !important;
+    }
+  }
+
   footer.width-container {
     display: none;
   }

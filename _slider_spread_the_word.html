@@ -21,6 +21,7 @@
       {% endif %}
   </div>
 
+<div class="social-links">
   <div class="padtopmore">
   <!-- <h4>Like on Facebook</h4> -->
     <div class="padtopless">
@@ -66,21 +67,26 @@
       </div>
   </div>
 
+  <!-- <h4>You can also post to tumblr, reddit, and digg.</h4> -->
   <script type="text/javascript" src="//platform.tumblr.com/v1/share.js"></script>
   <div class="padtopmore">
-      <!-- <h4>You can also post to tumblr, reddit, and digg.</h4> -->
       <div class="padtopless">
         <a href="http://www.tumblr.com/share/link?url={{ page.recruiting.featured_page.full_url_with_recruiter | escape }}&name={{ page.recruiting.featured_page.headline | escape }}&description={{ page.recruiting.default_tweet_text | escape }}" title="Post on Tumblr">{{ "tumblr32" | icon }}</a>
-
+      </div>
+  </div>
+  <div class="padtopmore">
+      <div class="padtopless">
         <a href="http://reddit.com/submit?title={{ page.recruiting.featured_page.headline | escape }}&url={{ page.recruiting.featured_page.full_url_with_recruiter | escape }}">{{ "reddit32" | icon }}</a>
-
-        <a href="http://digg.com/submit?url={{ page.recruiting.featured_page.full_url_with_recruiter | escape }}&title={ page.recruiting.featured_page.headline | escape }}">
+      </div>
+  </div>
+  <div class="padtopmore">
+    <div class="padtopless">
+      <a href="http://digg.com/submit?url={{ page.recruiting.featured_page.full_url_with_recruiter | escape }}&title={ page.recruiting.featured_page.headline | escape }}">
         <span style="display:none">
-        {{ page.recruiting.default_tweet_text}}
+          {{ page.recruiting.default_tweet_text}}
         </span>
         {{ "digg32" | icon }}
-        </a>
-
-      </div>
-
+      </a>
+    </div>
   </div>
+</div>
