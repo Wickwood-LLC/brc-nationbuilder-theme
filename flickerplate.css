@@ -298,7 +298,7 @@
   background: url("Asylum_Township-bw-w-Cuomo-320.jpg?1414644836");
 }
 .slide-3 {
-  background: url("BRC_pic_10.jpg?1414473317");
+  background: url("slide3-320.jpg");
 }
 @media screen and (min-width: 480px){
   .slide-1 {
@@ -308,7 +308,7 @@
     background: url("Asylum_Township-bw-w-Cuomo-480.jpg?1414644844");
   }
   .slide-3 {
-    background: url("BRC_pic_10.jpg?1414473317");
+    background: url("slide3-480.jpg");
   }
 }
 @media screen and (min-width: 768px){
@@ -319,7 +319,7 @@
     background: url("Asylum_Township-bw-w-Cuomo-768.jpg?1414646124");
   }
   .slide-3 {
-    background: url("BRC_pic_10.jpg?1414473317");
+    background: url("slide3-768.jpg");
   }
 }
 @media screen and (min-width: 1024px){
@@ -330,6 +330,6 @@
     background: url("Asylum_Township-bw-w-Cuomo.jpg?1414644829");
   }
   .slide-3 {
-    background: url("BRC_pic_10.jpg?1414473317");
+    background: url("slide3.jpg");
   }
 }
