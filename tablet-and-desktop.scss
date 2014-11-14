@@ -262,14 +262,12 @@ footer.width-container, .footer-signup.width-container {
 
 .nav-container {
   background: $nav-background;
-  //position: absolute;
-  position: relative !important;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9998;
   -webkit-backface-visibility: hidden; 
-  -webkit-transform: translateZ(0);
+  // -webkit-transform: translateZ(0);
   @include transition(all 0.7s cubic-bezier(.3,0,.2,1));
   &.active {
     left: -15em;
@@ -308,8 +306,8 @@ nav, .subnav {
   .user-menu-login{
     position:absolute;
     display:block;
-    height: 100%;
-    top: 0;
+    height: 72px;
+    bottom: 0;
     width: 114px;
     text-align: center;
     color: $nav-2-color;
@@ -341,7 +339,7 @@ nav, .subnav {
     position: absolute;
     right: 10px;
     background: none;
-    top: 50%;
+    bottom: 0;
     margin-top: -35px;
     @include transition(all 0.7s cubic-bezier(.3,0,.2,1));
     &.supporter-nav-toggle {
@@ -967,10 +965,6 @@ ul#page-stream {
     }
   }
 
-  .nav-container {
-    position: absolute !important;
-  }
-
   nav .nav-menu, .subnav .nav-menu {
     padding: 0;
   }
@@ -1089,6 +1083,6 @@ ul#page-stream {
   }
   
   .nav-container {
-    position: relative !important;
+    // position: relative !important;
   }
 }
