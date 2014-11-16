@@ -1093,9 +1093,13 @@ ul#page-stream {
     -webkit-transform: none;
 
     nav#menu > span[class*="user-menu"] {
-      height: 72px;
+      height: 60px;
       top: initial;
       bottom: 0;
+
+      @media only screen and (min-width: 890px){
+        height: 72px;
+      }
     }
   }
 }
