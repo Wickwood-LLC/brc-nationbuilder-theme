@@ -1092,7 +1092,8 @@ ul#page-stream {
     position: static !important;
     -webkit-transform: none;
 
-    nav#menu > span[class*="user-menu"] {
+    nav#menu > span[class*="user-menu"],
+    nav#menu > a[class*="user-menu"] {
       height: 60px;
       top: initial;
       bottom: 0;
