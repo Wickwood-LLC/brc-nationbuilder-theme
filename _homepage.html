@@ -123,10 +123,14 @@
                 }
 
                 // This is to keep the titles from overlapping
-                var offset = $(".slide-2 .flick-title").offset().top;    // Determine the distance from top
-                if (offset < 100) {                               // If distance from top is less than a certain value..
-                  $(".slide-2 .flick-content").offset({top: 100});         // ..fix it to this value
+                var offset = $(".flick-title").offset().top,              // Determine the distance from top
+                    headerHeight = $(".site-logo-wrap header").height();  // Determine height of header
+                if (offset < headerHeight) {                              // If distance from top is less than header height..
+                  $(".flick-content").offset({top: headerHeight});        // ..make it equal to header height
                 }
+
+                console.log("Header height is " + headerHeight + ".");
+                console.log("Offset is " + offset + ".");
 
               }, 500, "some unique string");
           });
