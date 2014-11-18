@@ -93,6 +93,7 @@
               }
             });
           
+          // This function prevents the action to be performed until the event finishes
           var waitForFinalEvent = (function () {
             var timers = {};
             return function (callback, ms, uniqueId) {
@@ -106,14 +107,26 @@
             };
           })();
 
+          // On load and resize..
           $(window).on("load resize",function () {
               waitForFinalEvent(function(){
 
                 var height = $(window).height(),
                     width = $(window).width();
 
-                $(".header-container").height(height);
-                $(".slide-2 form").height(height * 0.5);
+                $(".slide-2 form").height(height * 0.5);  // Set form height to a certain percentage of the window height
+
+                if (height > 525) {                       // If window height is greater than this value
+                  $(".header-container").height(height);  // ..resize element to the same height as the window
+                } else {
+                  $(".header-container").height(525);     // ..if not, set height to a fixed value
+                }
+
+                // This is to keep the titles from overlapping
+                var offset = $(".slide-2 .flick-title").offset().top;    // Determine the distance from top
+                if (offset < 100) {                               // If distance from top is less than a certain value..
+                  $(".slide-2 .flick-content").offset({top: 100});         // ..fix it to this value
+                }
 
               }, 500, "some unique string");
           });
