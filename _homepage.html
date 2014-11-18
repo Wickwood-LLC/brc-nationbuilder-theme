@@ -114,17 +114,23 @@
                 var height = $(window).height(),
                     width = $(window).width();
 
-                $(".slide-2 form").height(height * 0.5);  // Set form height to a certain percentage of the window height
-
                 if (height > 525) {                       // If window height is greater than this value
                   $(".header-container").height(height);  // ..resize element to the same height as the window
+
                 } else {
                   $(".header-container").height(525);     // ..if not, set height to a fixed value
                 }
 
+                if (height > 650) {                         // If window height is greater than this value
+                  $(".slide-2 form").height(height * 0.5);  // Set form height to a certain percentage of the window height
+
+                } else {
+                  $(".slide-2 form").height(650 * 0.3);     // Set form height to a this value
+                }
+
                 // This is to keep the titles from overlapping
                 var offset = $(".flick-title").offset().top,              // Determine the distance from top
-                    headerHeight = $(".site-logo-wrap header").height();  // Determine height of header
+                    headerHeight = $(".site-logo-wrap").height();  // Determine height of header
                 if (offset < headerHeight) {                              // If distance from top is less than header height..
                   $(".flick-content").offset({top: headerHeight});        // ..make it equal to header height
                 }
